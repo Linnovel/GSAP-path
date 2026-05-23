@@ -1,28 +1,38 @@
-body {
+/* body {
     background-color: #000;
-  display: flex;
-}
-.item {
+} */
+/* .item {
   display: flex;
   align-items: center;
-  margin: 20px;
+  cursor: pointer;
 }
+
+
 
 .dot {
   width: 20px;
   height: 20px;
+  background-color: #333;
   border-radius: 50%;
+  margin-left: 2rem;
   margin-right: 10px;
 }
 
- 
-
-.charH, .charO,  .charM ,.charE {
-  cursor: pointer;
-  font-family: 'Arial', sans-serif;
-  font-size: 8rem;
-  font-weight: 700;
+.text {
+  color: #777;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
-  margin: 3px;
-  display: inline-block;
+  margin: 4px;
+  font-size: 40px;
+  white-space: nowrap;
 }
+
+
+.charH , .charO , .charM, .charE {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 2rem;
+}
+  */
