@@ -1,60 +1,15 @@
-import '../challengeOne.css'
-import gsap from 'gsap'
-import { GSDevTools } from "gsap/GSDevTools";
-import { TextPlugin } from "gsap/TextPlugin";
+import "../challengeOne.css"
+import gsap from "gsap"
+import { GSDevTools } from "gsap/GSDevTools"
+import { TextPlugin } from "gsap/TextPlugin"
+import { SplitText } from "gsap/SplitText"
 
-// gsap.registerPlugin(GSDevTools);
-
-
-//Repaso Rapido
-//gsap.to la animación va a empezar donde el elemento se encuentre, con el css, y html. Si deseas que se mueva de un lado como tal, tienes que ponerle el css. el tween va a empezar desde donde esta el elemento en su estado original y animarlo, a donde . se le define en el tween gsap.to
-// gsap.to
-    // x: 300, // Mueve el elemento a la coordenada absoluta 300px.
-    // x:  300,
-       // x: "- =300", // Toma la posición donde esté el elemento ahora mismo y le suma 300px.
-
-
-
-//from() es lo contrario a tween to, que hace la animacion desde un estado inicial definido. from define desde su estado inicial que es 180px a su posición natural que es x:0
-//Ve desde la esquina inferior derecha a tu posición natural, que es x:0, y lo hace en 2 segundos
-// gsap.from('.box', {
-//     y: 200,
-//     duration: 2 
-// })
-
-//Yo defino donde empieza y donde terimna la animacion con fromTo
-gsap.fromTo('.box', {
-    //En los objetos, siempre se pone el estado inicial, y luego el estado final, y se pueden poner las propiedades que se quieran en cada uno de los objetos, como la duracion, o la facilidad de la animacion
-    y: 0,
-    //Este duration es ignorado por GSAP
-    duration: 2,
-},
-{
-    //este segundo objeto es el que manda
-     y: 600,
-     //Este duration es el que manda, el primero es ignorado por GSAP
-    duration: 2,
-    background: "#f93",
-    repeat:-1,
-    yoyo: true,
-    ease: "power1.inOut",
-    delay: 1
-})
-
-
-
-
-
-
-
-
-
-
+gsap.registerPlugin(TextPlugin, GSDevTools, SplitText)
 
 // //el default ayuda a no tener que escribir la duracion en cada animacion, se puede sobreescribir en cada animacion si se quiere
 
 // const tl = gsap.timeline({ defaults: { duration: 3 } })
-//     tl.fromTo('.word', 
+//     tl.fromTo('.word',
 //   { x: "+=100", opacity: 10 }, // Inicio
 //   { x: 0, opacity: 1 }    // Fin (su posición natural en el CSS es x: 0)
 // )
@@ -89,44 +44,126 @@ gsap.fromTo('.box', {
 //   ease: "power1.in",
 // })
 
-gsap.to('p', {
-    duration: 2,
-    text: {
-        value: "Analizando datos del sistema..",
-        // " " asi lo hace palabra por palabra, si se pone "" lo hace letra por letra
-        delimiter: " ",
-        duration: 0.5,
-    },
-    ease: "none",
-})
-
-// gsap.to('.status', {
-//     text: {
-//         value: "Error: No se han encontrado datos",
-//         newClass: "highlight",
-//     },
-//     duration: 0.5,
+// gsap.to("p", {
+//   duration: 2,
+//   text: {
+//     value: "Analizando datos del sistema..",
+//     // " " asi lo hace palabra por palabra, si se pone "" lo hace letra por letra
+//     delimiter: " ",
+//     duration: 5,
+//   },
+//   ease: "none",
 // })
 
-//cambia el texto de un elemento a otro, con el tipo diff hace que solo cambie lo que es diferente entre el texto inicial y el final, haciendo una animacion mas fluida
-gsap.to('.title', {
-    text: {
-        value: "Estamos en un mundo donde se aprenden pocas cosas",
-        type: "diff",
-    },
-    duration: 0.5
+// // gsap.to('.status', {
+// //     text: {
+// //         value: "Error: No se han encontrado datos",
+// //         newClass: "highlight",
+// //     },
+// //     duration: 0.5,
+// // })
+
+// //cambia el texto de un elemento a otro, con el tipo diff hace que solo cambie lo que es diferente entre el texto inicial y el final, haciendo una animacion mas fluida
+// // gsap.to(".title", {
+// //   text: {
+// //     value: "Estamos en un mundo donde se aprenden pocas cosas",
+// //     type: "diff",
+// //   },
+// //   duration: 0.5,
+// // })
+
+// // the target can be selector text, an element, or an Array of elements
+// let splitExample = SplitText.create(".headline")
+
+// // Array of characters
+// splitExample.chars
+
+// // Array of words
+// splitExample.words
+
+// // Array of lines
+// splitExample.lines
+
+// //SplitText
+// let split
+// let animation = gsap.timeline({})
+
+// function init() {
+//   gsap.set(".wrapper", { autoAlpha: 1 })
+
+//   // 1. Si el split ya existe, lo revertimos antes de volver a crearlo
+//   if (split) {
+//     split.revert()
+//   }
+
+//   // 2. Creamos el split
+//   split = new SplitText(".wrapper h1", { type: "chars" })
+
+//   // 3. Animamos
+//   animation.from(split.chars, {
+//     opacity: 0,
+//     y: 50,
+//     ease: "back.out(1.7)", // Un poco de "rebote" le da vida
+//     stagger: 0.05,
+//   })
+//   GSDevTools.create({ animation: animation })
+// }
+
+// init()
+
+// let splitTwo = SplitText.create(".text", {
+//   type: "words, lines",
+//   mask: "lines",
+//   charsClass: "char++", // Clase personalizada para caracteres
+//   // charsClass: "", // Clase personalizada para caractereso
+// })
+
+// gsap.to(splitTwo.words, {
+//   y: 100,
+//   autoAlpha: 0,
+//   stagger: {
+//     amount: 2, // Duración total del stagger
+//     each: 0.1,
+//     //         repeat: -1,
+//     // yoyo: true,
+//     ease: "power2.in",
+//     // axis: "x", // "x" o "y"
+//     //cuando usamos form crea un delay entre cada palabra, con fromTo no se puede usar el delay, pero con stagger si, y se puede configurar de diferentes formas, como por ejemplo cada 0.1 segundos, o cada 0.1 segundos empezando desde el centro, o desde el final, o desde un índice específico
+//     from: "center", // "start", "center", "end", o un índice específico
+//   },
+// })
+
+
+
+
+// //Carusel
+// //Empecemos con un carusel
+// const track = document.querySelector(".carousel-track")
+// const tl = gsap.timeline({ repeat: -1})
+// tl.to(track, {
+//     xPercent: -125,
+// duration: 4,
+//     ease: "none",
+// })
+
+
+
+
+const tl = gsap.timeline()
+
+tl.to('.first-text', {
+    y: 0,
+    duration: 1,
+    ease: "power2.out",
 })
-
-
-// rtl (Right-to-Left)
-// Muy útil si trabajas para mercados internacionales (árabe, hebreo) o si simplemente buscas un efecto creativo donde el texto parece "emerger" desde el final hacia el principio.
-gsap.to(".footer-text", {
-  text: {
-    value: "¡Gracias por leer!",
-    rtl: true
-  },
-  duration: 2
-});
-
-gsap.registerPlugin(TextPlugin);
-
+.to('.second-text', {
+    y: 0,
+    duration: 1,
+    ease: "power2.out",
+}, ">")  
+.to('.third-text', {
+    y: 0,
+    duration: 1,
+    ease: "power2.out",
+    
+})

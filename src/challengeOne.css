@@ -1,25 +1,68 @@
-body {
-    background-color: #cccaca;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.highlight {
-    color: #f93;
-    font-weight: bold;
+
+
+body { background-color: #121212; color: #b2e8d3;   }
+
+.typography-overview {
+  max-width: 1000px;
+  margin: 0px auto;
+  padding: 0 20px;
 }
 
-p {
-    color: #fff;
-    font-family: Arial, sans-serif; 
-    font-weight: bold;
-    font-size: 3rem;
+.overview-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  margin-bottom: 80px;
 }
 
-.box {
-    display: block;
-    width: 250px;
-    height: 150px;
-    background: #4a90e2;
-    border: 4px solid #1f5fa7;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.overview-header p {
+  max-width: 600px;
+  line-height: 1.6;
 }
+
+.type-section {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* Alineación perfecta para columnas */
+  align-items: center;
+  padding: 40px 0;
+  border-top: 1px solid #555; /* Línea divisoria */
+  overflow: hidden;
+}
+
+.label {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.font-name {
+  font-size: 6rem;
+  position: relative;
+  transform: translateY(-200%);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.first-text {
+    font-family: 'Roboto', sans-serif;
+}
+
+.second-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.third-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.note {
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+ 
