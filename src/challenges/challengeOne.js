@@ -143,8 +143,9 @@ gsap.registerPlugin(TextPlugin, GSDevTools, SplitText)
 // tl.to(track, {
 //     xPercent: -125,
 // duration: 4,
-//     ease: "none",
-// })
+
+
+//Aprender mas sobre timeline, pero con los textPlugin
 
 
 
