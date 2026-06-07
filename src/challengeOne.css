@@ -3,10 +3,10 @@
 *::after {
   box-sizing: border-box;
 }
-
-
-
-body { background-color: #121212; color: #b2e8d3;   }
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+} 
 
 .typography-overview {
   max-width: 1000px;
@@ -17,13 +17,15 @@ body { background-color: #121212; color: #b2e8d3;   }
 .overview-header {
   display: grid;
   grid-template-columns: 200px 1fr;
-  margin-bottom: 80px;
+  margin-bottom: 44px;
 }
 
 .overview-header p {
   max-width: 600px;
   line-height: 1.6;
 }
+
+ 
 
 .type-section {
   display: grid;
@@ -40,7 +42,8 @@ body { background-color: #121212; color: #b2e8d3;   }
 }
 
 .font-name {
-  font-size: 6rem;
+  cursor: pointer;
+  font-size: 5rem;
   position: relative;
   transform: translateY(-200%);
   margin: 0;
@@ -65,4 +68,17 @@ body { background-color: #121212; color: #b2e8d3;   }
   text-align: right;
 }
 
- 
+.columnsContainer {
+  display: flex;
+  height: 100vh;
+  position: absolute;
+  width: 100%; /* Asegura que cubra el ancho */
+  top: 0px;
+}
+
+
+.column {
+  flex: 1; /* Esto hace que se repartan el espacio automáticamente */
+  height: 100%;
+  background-color: #333;
+}

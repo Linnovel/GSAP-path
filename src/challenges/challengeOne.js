@@ -147,24 +147,100 @@ gsap.registerPlugin(TextPlugin, GSDevTools, SplitText)
 
 //Aprender mas sobre timeline, pero con los textPlugin
 
+// let splitText = SplitText.create(".overviewHeader", { type: "words, chars" })
+
+// gsap.from(splitText.chars, {
+//     opacity: 0,
+//     ease: "power2.out",
+//     stagger: 0.01,
+// })
+
+//Forma mas actual y mejor la verdad
+// SplitText.create(".overviewHeader", {
+//     type: "words, chars",
+//     onSplit(selft) {
+//        return gsap.from(selft.words, {
+//          y: "random(-100, 100)",
+//             duration: 1,
+//             ease: "power2.inOut",
+//             autoAlpha: 0,
+//             stagger: 0.05,
+//             onComplete: () => split.revert()
+//         })
+//     }
+// })
 
 
+const split = new SplitText(".overviewHeader", { type: "words, chars" })
 
+//Mover esto al Gsap Libreria
 const tl = gsap.timeline()
 
-tl.to('.first-text', {
+tl.to('.column', {
+    height: "0%",
+    stagger: {
+  amount: 0.5,
+  from: "random", // "edges" hace que empiece por la primera y la última
+  ease: "powe2.out",
+}
+}).from(split.words, {
     y: 0,
-    duration: 1,
+    ease: "power2.inOut",
+    autoAlpha: 0,
+    stagger: {
+        amount: 2, //duracion del stagger
+        each: 0.1,
+        // repeat: -1,
+    },
+}, "<" ).to('.first-text', {
+    y: 0,
+        duration: 0.8,
     ease: "power2.out",
-})
+    })
 .to('.second-text', {
     y: 0,
-    duration: 1,
+    duration: 0.8,
     ease: "power2.out",
 }, ">")  
 .to('.third-text', {
     y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+})
+.to('body', {
+    backgroundColor: "#222",
+    color: "#eee",
     duration: 1,
     ease: "power2.out",
-    
-})
+}).to('.column', { height: "100%", duration: 0.5, stagger: { amount: 0.5, from: "random" } })
+ 
+
+
+// const columnsFall = gsap.timeline({ease: "power2.inOut", duration: 0.5 })
+
+// columnsFall.to('.column1', {
+//    height: "100%",
+// }).to('.column2', {
+//     height: "100%",
+// }, 1).to('.column3', {
+//     height: "100%",
+// }).to('.column4', {
+//     height: "100%",
+// }).to('.column5', {
+//     height: "100%",
+// }).to('.column6', {
+//     height: "100%",
+// }).to('.column7', {
+//     height: "100%",
+// }).to('.column8', {
+//     height: "100%",
+// }).to('.column9', {
+//     height: "100%",
+// }).to('.column10', {
+//     height: "100%",
+// }).to('.column11', {
+//     height: "100%",
+// }).to('.column12', {
+//     height: "100%",
+// }) 
+
