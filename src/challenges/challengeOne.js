@@ -212,8 +212,9 @@ tl.to('.column', {
     color: "#eee",
     duration: 1,
     ease: "power2.out",
-}).to('.column', { height: "100%", duration: 0.5, stagger: { amount: 0.5, from: "random" } })
- 
+}).to('.block', {
+    scaleX:0, duration: 1,
+})
 
 
 // const columnsFall = gsap.timeline({ease: "power2.inOut", duration: 0.5 })
